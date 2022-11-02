@@ -16,9 +16,12 @@ function onSubmit(event) {
         setTimeout(() => { msg.remove() }, 5000);
     }
     else {
+        // If you want to display on the website
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`));
         bookedUsers.appendChild(li);
+        // If you want to store in the local storage
+        localStorage.setItem('userAppointmentDetails',`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`);
         // Clearing the fields
         nameInput.value = '';
         emailInput.value = '';
