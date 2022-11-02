@@ -17,12 +17,13 @@
         <p>Fill the form below to book an appointment with one of our executives</p>
     </header>
     <main>
-        <form action="">
-            <label for="name">Username</label>
+        <form>
+            <div class="msg"></div>
+            <label for="name">Username<sup>*</sup></label>
             <input type="text" name="name" id="name">
-            <label for="email">Email</label>
+            <label for="email">Email<sup>*</sup></label>
             <input type="email" name="email" id="email">
-            <label>Date & Time
+            <label>Date & Time<sup>*</sup>
                 <div>
                     <input type="date" name="date" id="date">
                     <input type="time" name="time" id="time">
@@ -30,17 +31,12 @@
             </label>
             <input type="submit" value="BOOK MY SLOT" id="submit">
         </form>
-        <!-- <div id="booked">
+        <div id="booked">
             <h2>Recently Booked</h2>
-            <ul>
-                <li>Leo Turtle | leo@tmnt.com | 13/Jan/2022 | 7.00PM</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-            </ul>
-        </div> -->
+            <ul id="booked-users"></ul>
+        </div>
     </main>
+    <script src="bookApp.js"></script>
 </body>
 
 </html>

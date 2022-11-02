@@ -139,3 +139,20 @@ li {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
+
+.error {
+    color: rgb(255, 0, 0, 0.9);
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 0.1rem;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    font-style: italic;
+}
+
+sup{
+    color: red;
+    margin-left: 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
