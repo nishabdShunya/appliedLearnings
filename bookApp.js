@@ -31,7 +31,10 @@ function onSubmit(event) {
             dateOfAppointment: dateInput.value,
             timeOfAppointment: timeInput.value
         }
-        localStorage.setItem('userAppointmentDetails', JSON.stringify(user));
+        // localStorage.setItem('userAppointmentDetails', JSON.stringify(user));
+
+        // Storing multiple users
+        localStorage.setItem(user.email, JSON.stringify(user));
 
         // Clearing the fields
         nameInput.value = '';
