@@ -20,8 +20,19 @@ function onSubmit(event) {
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`));
         bookedUsers.appendChild(li);
+
         // If you want to store in the local storage
-        localStorage.setItem('userAppointmentDetails',`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`);
+        // localStorage.setItem('userAppointmentDetails',`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`);
+
+        // If you want to store the user details as an object in the local storage
+        const user = {
+            name: nameInput.value,
+            email: emailInput.value,
+            dateOfAppointment: dateInput.value,
+            timeOfAppointment: timeInput.value
+        }
+        localStorage.setItem('userAppointmentDetails', JSON.stringify(user));
+
         // Clearing the fields
         nameInput.value = '';
         emailInput.value = '';
