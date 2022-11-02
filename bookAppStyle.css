@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: 'Playfair Display';
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.5rem;
+    margin: 0;
+    background-image: url('bookApp.jpg');
+    background-size: cover;
+}
+
+header {
+    background-color: rgb(0, 0, 0, 0.75);
+    color: white;
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+hr {
+    background-color: rgb(255, 0, 0, 0.75);
+    border: 1px solid rgb(255, 0, 0, 0.75);
+}
+
+p {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: rgb(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+form>input {
+    margin-bottom: 2rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+form>label {
+    margin-bottom: 0.1rem;
+    text-transform: uppercase;
+}
+
+form div {
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+#date {
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: none;
+    flex: 1;
+    margin-right: 0.25rem;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+#time {
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: none;
+    flex: 1;
+    margin-left: 0.25rem;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+input[type="submit"] {
+    font-family: 'Playfair Display';
+    background-color: rgb(255, 0, 0, 0.8);
+    color: white;
+    margin-bottom: 1rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+}
+
+#booked {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: rgb(0, 0, 0, 0.8);
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    align-items: stretch;
+}
+
+li {
+    list-style-type: none;
+    border: 1px solid rgb(255, 0, 0, 0.8);
+    margin: 1rem 0;
+    padding: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
