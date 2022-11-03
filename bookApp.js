@@ -1,8 +1,8 @@
 const form = document.querySelector('form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-const dateInput = document.querySelector('#date');
-const timeInput = document.querySelector('#time');
+let nameInput = document.querySelector('#name');
+let emailInput = document.querySelector('#email');
+let dateInput = document.querySelector('#date');
+let timeInput = document.querySelector('#time');
 const msg = document.querySelector('.msg');
 const bookedUsers = document.querySelector('#booked-users');
 
@@ -16,35 +16,19 @@ function onSubmit(event) {
         setTimeout(() => { msg.remove() }, 5000);
     }
     else {
-        // If you want to display on the website (displays only the currently added users)
-        // const li = document.createElement('li');
-        // li.appendChild(document.createTextNode(`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`));
-        // bookedUsers.appendChild(li);
-
-        // If you want to store in the local storage
-        // localStorage.setItem('userAppointmentDetails',`${nameInput.value} | ${emailInput.value} | ${dateInput.value} | ${timeInput.value}`);
-
-        // If you want to store the user details as an object in the local storage
-        const user = {
+        // Creating the user object
+        const userObj = {
             name: nameInput.value,
             email: emailInput.value,
-            dateOfAppointment: dateInput.value,
-            timeOfAppointment: timeInput.value
+            date: dateInput.value,
+            time: timeInput.value
         }
-        // localStorage.setItem('userAppointmentDetails', JSON.stringify(user));
 
-        // Storing multiple users in the local storage (just make the key unique)
-        localStorage.setItem(user.email, JSON.stringify(user));
+        // Storing user object in the local storage
+        localStorage.setItem(userObj.email, JSON.stringify(userObj));
 
-        // Displaying on the website using local storage (displays all that is in the local storage)
-        // Object.keys(localStorage).forEach((key) => {
-        //     const li = document.createElement('li');
-        //     li.appendChild(document.createTextNode(`${JSON.parse(localStorage.getItem(key)).name} | ${JSON.parse(localStorage.getItem(key)).email} | ${JSON.parse(localStorage.getItem(key)).dateOfAppointment} | ${JSON.parse(localStorage.getItem(key)).timeOfAppointment}`));
-        //     bookedUsers.appendChild(li);
-        // })
-
-        // Function method to display users (displays only the currently added users)
-        displayUsers(user);
+        // Calling function for displaying user on webpage
+        displayUser(userObj);
 
         // Clearing the fields
         nameInput.value = '';
@@ -53,8 +37,38 @@ function onSubmit(event) {
         timeInput.value = '';
     }
 }
-// Defining the function displayUsers which we called inside the "event" function
-function displayUsers(userDetails) {
-    const li = `<li> ${userDetails.name} | ${userDetails.email} | ${userDetails.dateOfAppointment} | ${userDetails.timeOfAppointment}`;
-    bookedUsers.innerHTML = bookedUsers.innerHTML + li;
+
+window.addEventListener('DOMContentLoaded', () => {
+    Object.keys(localStorage).forEach((key) => {
+        displayUser(JSON.parse(localStorage[key]));
+    })
+})
+
+function displayUser(user) {
+    if (localStorage.getItem(user.email) !== null) {
+        stopDisplay(user.email);
+    }
+    const userDetails = `<li id=${user.email}> By: ${user.name} (${user.email})  |  Slot: ${user.date} (${user.time}) 
+                        <div><button id="del-btn" onClick="deleteUser('${user.email}')">DELETE</button><button id="edit-btn" onClick="editUser('${user.name}','${user.email}','${user.date}','${user.time}')">EDIT</button></div></li>`
+    bookedUsers.innerHTML = bookedUsers.innerHTML + userDetails;
+}
+
+function deleteUser(email) {
+    localStorage.removeItem(email);
+    stopDisplay(email);
+}
+
+function stopDisplay(email) {
+    const removeUser = document.getElementById(email);
+    if (removeUser) {
+        bookedUsers.removeChild(removeUser);
+    }
+}
+
+function editUser(name, email, date, time) {
+    nameInput.value = name;
+    emailInput.value = email;
+    dateInput.value = date;
+    timeInput.value = time;
+    deleteUser(email);
 }

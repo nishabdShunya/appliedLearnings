@@ -150,9 +150,41 @@ li {
     font-style: italic;
 }
 
-sup{
+sup {
     color: red;
     margin-left: 0.25rem;
     font-size: 1.5rem;
     font-weight: 100;
+}
+
+#del-btn {
+    background-color: rgb(255, 0, 0, 0.8);
+    color: white;
+    margin: 2rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100px;
+}
+
+#edit-btn {
+    background-color: rgb(255, 255, 255, 0.8);
+    color: black;
+    margin: 2rem 1rem 0 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100px;
+}
+
+#booked-users {
+    display: flex;
+    flex-direction: column;
+}
+
+#booked-users>li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
